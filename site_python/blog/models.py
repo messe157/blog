@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User #importando bilbiotcas
 
+
 # Create your models here.
 
 STATUS = (
@@ -18,17 +19,26 @@ class Post(models.Model):
     status = models.BigIntegerField(choices=STATUS, default=0)
 
 
-    class Meta:
+    class Meta: #organiza o os titulos
         ordering = ['-created_on']
+        verbose_name = 'postagem'
+        verbose_name_plural = 'postagens' 
 
     def __str__(self):
         return self.title
 
     #UPLOAD DE IMAGENS
-    class Image(models.Model):
-        title = models.CharField(max_length=200)
-        #image = models.ImageField(upload_to='images')
-        image = models.ImageField(upload_to='users/%Y/%m/%d/', blank=True)
-
-        def __str__(self):
-            return self.title
+class Photo(models.Model):
+    #title = models.CharField(max_length=200)
+    photo = models.ImageField('foto', upload_to='')
+    #image = models.ImageField(upload_to='users/%Y/%m/%d/', blank=True)
+    title = models.CharField('titulo', max_length=200)
+    
+    class Meta:
+        ordering = ('pk',)
+        verbose_name = 'foto'
+        verbose_name_plural = 'fotos' 
+            
+            
+    def __str__(self):
+        return self.title
