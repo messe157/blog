@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Post, Photo
+from django_summernote.admin import SummernoteModelAdmin
 
 
 # Register your models here.
@@ -9,7 +10,12 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
 
+# Apply summernote to all TextField in model.
+class PostAdmin(SummernoteModelAdmin):
+    summernote_fields = ('content',)
+
+#admin.site.register(Post, PostAdmin)
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Photo)
-
-
+#admin.site.register(SomeModel, SomeModelAdmin)

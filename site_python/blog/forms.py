@@ -1,6 +1,7 @@
 from django import forms 
 from .models import Photo, Post
 
+
 class TitlePhotoForm(forms.ModelForm):
     """Form for image model"""
     required_css_class = 'required'
@@ -9,3 +10,6 @@ class TitlePhotoForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('title', 'photo')
+
+
+

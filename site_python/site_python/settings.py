@@ -135,3 +135,8 @@ STATIC_URL = 'static/'
 
 #desativei-estudar função
 #DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ADD django_summernote em painel admin - https://github.com/summernote/django-summernote
+INSTALLED_APPS += ('django_summernote', )
+#configuração extra
+X_FRAME_OPTIONS = 'SAMEORIGIN'

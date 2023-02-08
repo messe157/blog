@@ -16,7 +16,7 @@ class PostDetail(generic.DeleteView):
     template_name = 'post_detail.html'
 
 def photo_create(request):
-    template_name = 'title_photo_form.html'
+    template_name = 'photo_form.html'
     form = TitlePhotoForm(request.POST or None)
 
     if request.method == 'POST':
@@ -28,7 +28,7 @@ def photo_create(request):
             for photo in photos:
                 Photo.objects.create(title=title, photo=photo)
 
-            return redirect('post_detail.html', title.pk)
+            return redirect('post_detail', title.pk)
 
     context = {'form': form}
     return render(request, template_name, context)
