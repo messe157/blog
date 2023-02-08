@@ -140,3 +140,4 @@ STATIC_URL = 'static/'
 INSTALLED_APPS += ('django_summernote', )
 #configuração extra
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+SUMMERNOTE_THEME = 'bs4'  # Show summernote with Bootstrap4
