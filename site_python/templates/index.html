@@ -23,8 +23,8 @@
               <div class="row">
                 <div class=" col-md-8 col-md-10 mx-auto">
                   <div class="site-heading">
-                    <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to my awesome Blog </h3>
-                    <p class="text-light">We Love Django As much as you do..! &nbsp
+                    <h3 class=" site-heading my-4 mt-3 text-white"> Bem vindo ao meu Blog </h3>
+                    <p class="text-light">Acompanhe minha rotina no desenvolvimento em Python e Django &nbsp
                     </p>
                 </div>
                     </div>
@@ -46,8 +46,8 @@
                     <h2 class="card-title">{{ post.title }}</h2>
                     <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
 
-                    <p class="card-text">{{post.content|slice:":200" }}</p>
-                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                    <p class="card-text">{{post.content|slice:":200" | safe}}</p> <!-- | safe para ocultar as tags na pagina inicial-->
+                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Leia Mais &rarr;</a>
                   </div>
                  
                 </div>
